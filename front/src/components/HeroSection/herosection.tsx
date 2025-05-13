@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from  './herosection.module.css';
+import type { url } from 'inspector';
 
 const HeroSection: React.FC = () => {
     return (
-        <section className={styles.hero}>
+    <section className={styles.hero}>
+
       <div className={styles.textContent}>
         <h1>
           <span className={styles.highlight}>One More Friend</span>

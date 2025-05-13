@@ -4,7 +4,7 @@ import styles from './navbar.module.css';
 const NavBar: React.FC = () => {
     return (
         <header className={styles.navbar}>
-            <div className={styles.logo}>Monito<span className={styles.paw}>🐾</span></div>
+            <div className={styles.logo}><img src='https://d1w7zrhxbqevdl.cloudfront.net/Monito-logo-complete.svg' /></div>
             <nav className={styles.links}>
                 <a href='#'>Home</a>
                 <a href='#'>Category</a>
@@ -23,6 +23,5 @@ const NavBar: React.FC = () => {
         </header>
     )
 };
-console.log("navbar carregada");
 
 export default NavBar;

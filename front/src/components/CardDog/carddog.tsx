@@ -20,9 +20,9 @@ const getGenero = (generoId: number | null | undefined): string => {
 
     switch (generoId) {
         case 1:
-            return "Feminino";
+            return "Female";
         case 2:
-            return "Masculino";
+            return "Male";
         default:
             return `Id desconhecido: ${generoId}`;
     }

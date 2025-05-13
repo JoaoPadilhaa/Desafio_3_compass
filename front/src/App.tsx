@@ -16,8 +16,8 @@ function App() {
 
 
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/teste">Teste</Link>
+        {/*<Link to="/">Home</Link>
+        //<Link to="/teste">Teste</Link>
         <Link to="/produtos">Produtos</Link>
         {/* <Link to="/sobre">Sobre</Link> */}
       </nav>

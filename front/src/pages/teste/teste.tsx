@@ -5,16 +5,12 @@ import CardProduto from "../../components/cardproduto";
 import CardDog from "../../components/CardDog/carddog";
 import styles from "./teste.module.css";
 
-interface Genero {
-  id: number;
-  descricao: string;
-}
 
 interface ProdutosCachorro {
   id: number;
   name: string;
   sku: string;
-  genero: Genero;
+  fk_id_genero: number;
   age: number;
   price: number;
 }

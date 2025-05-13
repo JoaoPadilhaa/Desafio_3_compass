@@ -1,7 +1,24 @@
 import { getProdutos } from "../../services/produtosService";
+import { getProdutosDog } from "../../services/produtoDogService";
 import { useState, useEffect } from "react";
 import CardProduto from "../../components/cardproduto";
-import "./Teste.css"; // Importando CSS externo
+import CardDog from "../../components/CardDog/carddog";
+import styles from "./teste.module.css";
+
+interface Genero {
+  id: number;
+  descricao: string;
+}
+
+interface ProdutosCachorro {
+  id: number;
+  name: string;
+  sku: string;
+  genero: Genero;
+  age: number;
+  price: number;
+}
+
 
 interface Produto {
   id: number;
@@ -27,14 +44,50 @@ function Teste() {
 
   return (
     <div>
-      <h2>Bem-vindo à página Home!</h2>
-      <div className="produtos-container">
+    <div className={styles.cardProdutoContainer}>
+      <div className={styles.produtosContainer}>
         {produtos.map((produto) => (
           <CardProduto key={produto.id} produto={produto} img={`/imgs/${produto.id}.jpg`} />
         ))}
       </div>
     </div>
+    <CardDogao></CardDogao>
+    </div>
   );
 }
+
+const CardDogao = () => {
+  const [dogs, setDogs] = useState<ProdutosCachorro[]>([]);
+
+  useEffect(() => {
+    const fetchDogs = async () => {
+      try {
+        const data = await getProdutosDog();
+        setDogs(data.data);
+      } catch (error) {
+        console.error('Erro ao buscar cachorros:', error);
+      }
+    };
+
+    fetchDogs();
+  }, []);
+
+   return (
+    <div className={styles.cardProdutoContainer}>
+      <div className={styles.produtosContainer}>
+      {dogs.map((dog) => (
+        <CardDog
+          key={dog.id}
+          cachorro={dog}
+          img={`/imgsdog/${dog.id}.jpg`} // ou `dog.image` se vier do backend
+        />
+      ))}
+      </div>
+    </div>
+  );
+};
+
+
+
 
 export default Teste;

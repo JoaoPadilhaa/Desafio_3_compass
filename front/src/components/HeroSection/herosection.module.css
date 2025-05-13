@@ -1,0 +1,67 @@
+.hero {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url('../../assets/imgs/HeroImage.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 750px;
+  position: relative;
+}
+
+.textContent {
+  max-width: 600px;
+  margin-left: 5%;
+  margin-bottom: 8%;
+}
+
+.textContent h1 {
+    margin-bottom: 7%;
+}
+
+.highlight {
+  color: #00204a;
+  font-weight: bold;
+  font-size: 4.5rem;
+
+}
+
+.moreFun {
+    font-size: 3rem;
+    color: #00204a;
+}
+
+p {
+  margin: 1.5rem 0;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 7%;
+}
+
+.viewIntro,
+.exploreNow {
+  padding: 0.75rem 2.5rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.viewIntro {
+  background-color: transparent;
+  border: 2px solid #00204a;
+  color: #00204a;
+}
+
+.exploreNow {
+  background-color: #00204a;
+  color: white;
+}
+  

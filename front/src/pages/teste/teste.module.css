@@ -1,0 +1,14 @@
+.produtosContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.produtosContainer img{
+  width: 100%;
+}
+
+.cardProdutoContainer {
+  width: 80%;
+  margin-left: 10%;
+}

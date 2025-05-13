@@ -1,0 +1,39 @@
+.cardProduto {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s;
+  width: 300px;
+}
+
+
+.produtoImagem {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.cardProduto:hover {
+  transform: scale(1.03);
+}
+
+.pesoProduct {
+  display: flex;
+  gap: 10%;
+  height: 20px;
+  align-items: center;
+}
+
+.pesoProduct p {
+  font-size: 1.1rem;
+  color: #696969;
+}
+
+.prices p{
+  font-size: 1.3rem;
+}

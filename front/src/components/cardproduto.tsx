@@ -1,10 +1,17 @@
 import React from "react";
-import "./CardProduto.css"; // Importando o CSS externo
+import styles from "./CardProduto.module.css"; // Importando o CSS como módulo
+
+interface TipoDeProduto {
+  id:number;
+  name: string;
+}
 
 interface Produto {
   id: number;
   name: string;
   peso: number;
+  price: number;
+  tipoDeProduto: TipoDeProduto;
 }
 
 interface Props {
@@ -13,12 +20,16 @@ interface Props {
 }
 
 const CardProduto: React.FC<Props> = ({ produto, img }) => {
+  console.log(produto);
   return (
-    <div className="card-produto">
+    <div className={styles.cardProduto}>
+      <img src={`/imgs/${produto.id}.jpg`} className={styles.produtoImagem}/>
       <h3>{produto.name}</h3>
-      <p><strong>ID:</strong> {produto.id}</p>
-      <p><strong>Peso:</strong> {produto.peso} kg</p>
-      <img src={img} className="produto-imagem"></img>
+      <div className={styles.pesoProduct}>
+        <p>Product: {produto.tipoDeProduto.name}</p>
+        <p>Peso: {produto.peso} kg</p>
+      </div>
+      <p><strong>{produto.price}.000 VND</strong> </p>
     </div>
   );
 };

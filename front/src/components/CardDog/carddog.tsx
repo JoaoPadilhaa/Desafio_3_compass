@@ -6,6 +6,7 @@ interface ProdutosCachorro {
     name: string;
     sku: string;
     fk_id_genero: number;
+    fk_id_cor:number;
     age: number;
     price: number;
 }

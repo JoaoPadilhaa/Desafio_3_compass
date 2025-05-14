@@ -61,7 +61,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <header>
-        <NavBar />
+        <NavBar backgroundColor="#faebd0"/>
       </header>
       <main>  
         
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
       </div>
       <section className={styles.containerDogs}>
        
-        {dogs.slice(0, 8).map((dog) => (
+        {(dogs || []).slice(0, 8).map((dog) => (
           <CardDog
             key={dog.id}
             cachorro={dog}

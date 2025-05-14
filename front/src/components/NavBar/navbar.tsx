@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './navbar.module.css';
 
-const NavBar: React.FC = () => {
+type NavBarProps = {
+    backgroundColor?: string;
+};
+
+const NavBar: React.FC<NavBarProps> = ({ backgroundColor }) => {
     return (
-        <header className={styles.navbar}>
+        <header className={styles.navbar} style={{backgroundColor}}>
             <div className={styles.logo}><img src='https://d1w7zrhxbqevdl.cloudfront.net/Monito-logo-complete.svg' /></div>
             <nav className={styles.links}>
                 <a href='#'>Home</a>

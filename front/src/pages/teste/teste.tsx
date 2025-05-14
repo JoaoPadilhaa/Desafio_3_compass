@@ -1,9 +1,10 @@
 import { getProdutos } from "../../services/produtosService";
 import { getProdutosDog } from "../../services/produtoDogService";
 import { useState, useEffect } from "react";
-import CardProduto from "../../components/cardproduto";
+import DogList from "../../components/DogList/DogList";
 import CardDog from "../../components/CardDog/carddog";
 import styles from "./teste.module.css";
+import NavBar from "../../components/NavBar/navbar";
 
 
 interface ProdutosCachorro {
@@ -40,14 +41,26 @@ function Teste() {
 
   return (
     <div>
-    <div className={styles.cardProdutoContainer}>
-      <div className={styles.produtosContainer}>
-        {produtos.map((produto) => (
-          <CardProduto key={produto.id} produto={produto} img={`/imgs/${produto.id}.jpg`} />
-        ))}
-      </div>
-    </div>
-    <CardDogao></CardDogao>
+      <div><NavBar backgroundColor="white"></NavBar></div>
+    
+    <article className={styles.banner}>
+        <div className={styles.contentBanner}>
+          <h2>One More Friend</h2>
+          <h3>Thousands More Fun!</h3>
+          <p>Having a pet means you have more joy, a new friend, a happy person who will always be
+             with you to have fun. We have 200+ different pets that can meet your needs!</p>
+        </div>
+        <div className={styles.buttonBanner}>
+          <a href="#" className={styles.buttonOne}>View Intro</a>
+          <a href="#" className={styles.buttonTwo}>Explore Now</a>
+        </div>
+      </article>
+
+    <div className={styles.dogsAll}>
+      <DogList />
+      <CardDogao></CardDogao></div>
+
+    
     </div>
   );
 }
@@ -59,7 +72,7 @@ const CardDogao = () => {
     const fetchDogs = async () => {
       try {
         const data = await getProdutosDog();
-        setDogs(data.data);
+        setDogs(dogs);
       } catch (error) {
         console.error('Erro ao buscar cachorros:', error);
       }

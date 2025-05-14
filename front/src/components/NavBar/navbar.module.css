@@ -32,6 +32,7 @@
     color: rgb(13, 48, 114);;
 }
 
+
 .searchContainer input {
     padding: 0.7rem 2.5rem;
     border-radius: 20px;
@@ -43,7 +44,7 @@
     color: white;
     padding: 0.7rem 2.5rem;
     border-radius: 20px;
-    
+    width: 15%;
 }
 
 

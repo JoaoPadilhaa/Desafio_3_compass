@@ -15,14 +15,22 @@ interface ProdutosCachorro {
   name: string;
   sku: string;
   fk_id_genero: number;
+  fk_id_cor: number;
   age: number;
   price: number;
+}
+
+interface TipoDeProduto {
+  id:number;
+  name: string;
 }
 
 interface Produto {
   id: number;
   name:string;
   peso: number;
+  price:number;
+  tipoDeProduto: TipoDeProduto;
 }
 
 
@@ -34,8 +42,14 @@ const Home: React.FC = () => {
   useEffect(() => {
     async function carregarDogs() {
       try {
-        const response = await getProdutosDog();
-        setDogs(response.data);
+        const dogsRecebidos = await getProdutosDog();
+        console.log("Produtos recebidos: ", dogsRecebidos)
+        if (Array.isArray(dogsRecebidos)){
+          setDogs(dogsRecebidos);
+        } else {
+          console.error("Erro ao buscar um array de produtos. ")
+        }
+        
       } catch (error) {
         console.error("Erro ao buscar cachorros:", error);
       }
@@ -48,8 +62,12 @@ const Home: React.FC = () => {
   useEffect(() => {
     async function carregarProdutos() {
       try{
-        const response = await getProdutos();
-        setProdutos(response.data);
+        const produtosRecebidos = await getProdutos();
+        if (Array.isArray(produtosRecebidos)) {
+          setProdutos(produtosRecebidos);
+        } else {
+          console.error("Erro ao buscar um array de produtos");
+        }
       } catch (error) {
         console.error("Erro ao buscar produtos: ", error);
       }
@@ -72,7 +90,7 @@ const Home: React.FC = () => {
       <div className={styles.viewMore}>
         <div className={styles.classWhatsNew}><p>What's new?</p>
         <h3>Take A Look At Some Of Our Pets</h3></div>
-        <Link to="/teste" className={styles.buttonViewMore}><a href="#"><p>View More</p></a></Link>
+        <Link to="/teste" className={styles.buttonViewMore}><p>View More</p></Link>
       </div>
       <section className={styles.containerDogs}>
        
@@ -103,7 +121,7 @@ const Home: React.FC = () => {
       </div>
 
       <div className={styles.containerDogs}>
-        {produtos.map((produto) => (
+        {(produtos ?? []).map((produto) => (
           <CardProduto key={produto.id} produto={produto} img={`/imgs/${produto.id}.jpg`} />
         ))}
       </div>

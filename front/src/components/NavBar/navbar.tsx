@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './navbar.module.css';
+import { Link } from 'react-router-dom';
 
 type NavBarProps = {
     backgroundColor?: string;
@@ -10,7 +11,7 @@ const NavBar: React.FC<NavBarProps> = ({ backgroundColor }) => {
         <header className={styles.navbar} style={{backgroundColor}}>
             <div className={styles.logo}><img src='https://d1w7zrhxbqevdl.cloudfront.net/Monito-logo-complete.svg' /></div>
             <nav className={styles.links}>
-                <a href='#'>Home</a>
+                <Link to="/" className={styles.homeNav}>Home</Link>
                 <a href='#'>Category</a>
                 <a href='#'>About</a>
                 <a href='#'>Contact</a>

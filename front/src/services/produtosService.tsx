@@ -6,7 +6,7 @@ const apiUrl =  "http://localhost:3001/produtos";
 export async function getProdutos() {
   try {
     const response = await axios.get(apiUrl);
-    return response;
+    return response.data;
   } catch (error) {
     console.error('Erro ao buscar usuários:', error);
     throw error;
